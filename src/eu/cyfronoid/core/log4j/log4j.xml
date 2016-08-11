@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+  <appender name="All" class="eu.cyfronoid.core.log4j.ZippedDailyRollingFileAppender">
+        <param name="File" value="../logs/All.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <param name="CompressBackups" value="true"/>
+        <param name="MaxNumberOfDays" value="7"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy.MM.dd HH:mm:ss.SSS} [%t] %-5p %c{1} %m%n"/>
+    </layout>
+  </appender>
+
+  <appender name="Warning" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="../logs/Warning.log"/>
+    <param name="Append" value="false"/>
+    <param name="MaxFileSize" value="10MB"/>
+    <param name="MaxBackupIndex" value="2"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy.MM.dd HH:mm:ss.SSS} [%t] %-5p %c{1} %m%n"/>
+    </layout>
+    <filter class="org.apache.log4j.varia.LevelRangeFilter">
+      <param name="LevelMin" value="WARN"/>
+      <param name="LevelMax" value="FATAL"/>
+      <param name="AcceptOnMatch" value="true"/>
+    </filter>
+    <filter class="org.apache.log4j.varia.DenyAllFilter"/>
+  </appender>
+
+  <logger name="eu.cyfronoid" additivity="false">
+    <level value="debug"/>
+    <appender-ref ref="All"/>
+    <appender-ref ref="Warning"/>
+  </logger>
+
+  <root>
+    <priority value="WARN"/>
+    <appender-ref ref="All"/>
+    <appender-ref ref="Warning"/>
+  </root>
+
+</log4j:configuration>
