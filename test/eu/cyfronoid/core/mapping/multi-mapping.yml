@@ -1,0 +1,9 @@
+mappings:
+    RadioEquipment:
+        values:
+            OptiX RTN 950: RTN950
+            OptiX RTN 910: RTN910
+
+    Fan:
+        values:
+            RTN910: RTN910 FAN

@@ -1,0 +1,5 @@
+type: REGEX
+values: {
+    "GigabitEthernet(\\d+)": "Gi{1}",
+    "Z#Gigabit0/(\\d+)": "Gi{1}"
+}
