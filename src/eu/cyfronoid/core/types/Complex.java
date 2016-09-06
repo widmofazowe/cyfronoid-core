@@ -1,4 +1,4 @@
-package eu.cyfronoid.core.util;
+package eu.cyfronoid.core.types;
 
 import static java.lang.Math.*;
 
@@ -30,11 +30,19 @@ public class Complex {
         return tmp;
     }
 
+    public Complex multiply(double x) {
+        return multiply(new Complex(x, 0.0d));
+    }
+
     public Complex multiply(Complex cpx) {
         Complex tmp = new Complex();
         tmp.re = re * cpx.re - im * cpx.im;
         tmp.im = re * cpx.im + cpx.re * im;
         return tmp;
+    }
+
+    public Complex divide(double x) {
+        return divide(new Complex(x, 0.0d));
     }
 
     public Complex divide(Complex cpx) {
@@ -83,8 +91,34 @@ public class Complex {
         return tmp;
     }
 
-    public boolean equals(Complex cpx) {
-        return (re == cpx.re && im == cpx.im);
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        long temp;
+        temp = Double.doubleToLongBits(im);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(re);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Complex other = (Complex) obj;
+        if (Double.doubleToLongBits(im) != Double.doubleToLongBits(other.im)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(re) != Double.doubleToLongBits(other.re)) {
+            return false;
+        }
+        return true;
     }
 }
 

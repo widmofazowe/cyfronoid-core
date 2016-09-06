@@ -11,6 +11,8 @@ import org.aopalliance.intercept.MethodInvocation;
 
 import com.google.common.collect.ImmutableMap;
 
+import eu.cyfronoid.core.validator.annotation.NotNull;
+
 public class BuilderInterceptor implements MethodInterceptor {
 
     private final Map<Class<? extends Annotation>, BuilderValidator> validators = ImmutableMap.<Class<? extends Annotation>, BuilderValidator>builder()

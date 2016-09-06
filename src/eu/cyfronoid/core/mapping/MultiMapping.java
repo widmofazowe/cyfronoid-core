@@ -6,8 +6,8 @@ import java.util.Optional;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 
-import eu.cyfronoid.core.injector.validator.NotNull;
 import eu.cyfronoid.core.mapping.config.MappingConfig;
+import eu.cyfronoid.core.validator.annotation.NotNull;
 
 public class MultiMapping {
     private final Map<String, Mapping> mapping;

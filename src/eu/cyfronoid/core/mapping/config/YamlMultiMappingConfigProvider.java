@@ -7,7 +7,7 @@ import org.yaml.snakeyaml.constructor.Constructor;
 import com.google.common.base.Preconditions;
 
 import eu.cyfronoid.core.configuration.loader.ConfigurationInputStreamProvider;
-import eu.cyfronoid.core.injector.validator.NotNull;
+import eu.cyfronoid.core.validator.annotation.NotNull;
 
 
 public class YamlMultiMappingConfigProvider implements MultiMappingConfigProvider {

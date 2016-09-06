@@ -5,8 +5,8 @@ import java.util.Optional;
 
 import com.google.common.base.Preconditions;
 
-import eu.cyfronoid.core.injector.validator.NotNull;
 import eu.cyfronoid.core.mapping.config.MappingConfig;
+import eu.cyfronoid.core.validator.annotation.NotNull;
 
 public class SimpleMapping implements Mapping {
 
